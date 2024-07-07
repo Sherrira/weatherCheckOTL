@@ -30,7 +30,7 @@ func TestMockTestFetchTemperatureByCity(t *testing.T) {
 
 	var httpClient HTTPClient = mockHTTPClient
 
-	conf := &configs.Config{WeatherAPIKey: "abc123"}
+	conf := &configs.Config{WEATHER_API_KEY: "abc123"}
 
 	repositoryMocked := NewTemperatureRepositoryForTest(httpClient, conf)
 	result, err := repositoryMocked.FetchTemperatureByCity("Itajubá")

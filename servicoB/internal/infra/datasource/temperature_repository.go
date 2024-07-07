@@ -14,11 +14,7 @@ type TemperatureRepository struct {
 	conf       configs.Config
 }
 
-func NewTemperatureRepository() *TemperatureRepository {
-	conf, err := configs.LoadConfig(".")
-	if err != nil {
-		panic(err)
-	}
+func NewTemperatureRepository(conf *configs.Config) *TemperatureRepository {
 	return &TemperatureRepository{
 		HTTPClient: &http.Client{},
 		conf:       *conf,
@@ -39,7 +35,7 @@ type TemperatureAPIResponse struct {
 }
 
 func (t *TemperatureRepository) FetchTemperatureByCity(local string) (float64, error) {
-	url := fmt.Sprintf("http://api.weatherapi.com/v1/current.json?key=%s&q=%s", t.conf.WeatherAPIKey, url.QueryEscape(local))
+	url := fmt.Sprintf("https://api.weatherapi.com/v1/current.json?key=%s&q=%s", t.conf.WEATHER_API_KEY, url.QueryEscape(local))
 	fmt.Printf("Calling GET weatherapi: %v\n", url)
 	resp, err := t.HTTPClient.Get(url)
 	if err != nil {

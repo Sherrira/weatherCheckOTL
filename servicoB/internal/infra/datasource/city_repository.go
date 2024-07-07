@@ -7,19 +7,24 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"servicoB/configs"
 )
 
 type CityRepository struct {
 	HTTPClient HTTPClient
+	Configs    *configs.Config
 }
 
-func NewCityRepository() *CityRepository {
+func NewCityRepository(conf *configs.Config) *CityRepository {
 	// TODO: Remove InsecureSkipVerify
 	transport := &http.Transport{
 		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
 	}
 	client := &http.Client{Transport: transport}
-	return &CityRepository{HTTPClient: client}
+	return &CityRepository{
+		HTTPClient: client,
+		Configs:    conf,
+	}
 }
 
 func NewCityRepositoryForTest(client HTTPClient) *CityRepository {

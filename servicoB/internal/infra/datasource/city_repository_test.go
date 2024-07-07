@@ -2,17 +2,18 @@ package datasource
 
 import (
 	"bytes"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/mock"
 	"io"
 	"net/http"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
 )
 
 var httpClient HTTPClient = &http.Client{}
 
 func TestFetchCityByCEP(t *testing.T) {
-	repository := NewCityRepository()
+	repository := NewCityRepository(nil)
 	result, err := repository.FetchCityByCEP("37503130")
 	assert.Nil(t, err)
 	assert.Equal(t, "Itajubá", result["localidade"])

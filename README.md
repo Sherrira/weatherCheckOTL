@@ -16,7 +16,7 @@ Assegure-se de ter as seguintes ferramentas instaladas:
 Para executar as consultas de temperatura é necessária a obtençao de uma chave de acesso à API WeatherAPI. Para isso, siga os passos abaixo:    
 1. Acesse o site [WeatherAPI](https://www.weatherapi.com/) e crie uma conta.
 2. Após a criação da conta, acesse o painel de controle e copie a chave de acesso.
-3. No arquivo ".env" na pasta cmd, adicione a chave de acesso obtida no passo anterior.
+3. No arquivo ".env" na pasta cmd do servicoA, adicione a chave de acesso obtida no passo anterior.
 
 Nota: o projeto está entregando um arquivo Dockerfile que permite o deploy na Google Cloud Platform no serviço Google Cloud Run.
 
