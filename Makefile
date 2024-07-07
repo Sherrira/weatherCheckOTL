@@ -1,6 +1,6 @@
 build-run:
-	docker compose up --build
+	docker compose up -d --build
 run:
-	docker compose up
+	docker compose up -d
 stop:
 	docker compose down
