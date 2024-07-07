@@ -8,7 +8,7 @@ services:
   servico-b:
     build: ./servicoB
     ports:
-      - "8081:8080"
+      - "8081:8081"
 
   otel-collector:
     image: otel/opentelemetry-collector:latest
